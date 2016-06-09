@@ -264,3 +264,18 @@ Rcpp::RawVector context_get_bin(std::string name, Rcpp::XPtr< v8::Persistent<v8:
   mystring->WriteAscii((char*) res.begin());
   return res;
 }
+
+// [[Rcpp::export]]
+int context_get_mem(Rcpp::XPtr< v8::Persistent<v8::Context> > ctx) {
+  // Test if context still exists
+  if(!ctx)
+    throw std::runtime_error("Context has been disposed.");
+
+  // Create a scope
+  HandleScope handle_scope;
+  Context::Scope context_scope(*ctx);
+
+  v8::ResourceConstraints constraints;
+
+  return constraints.max_old_space_size();
+}

@@ -33,3 +33,7 @@ context_get_bin <- function(name, ctx) {
     .Call('V8_context_get_bin', PACKAGE = 'V8', name, ctx)
 }
 
+context_get_mem <- function(ctx) {
+    .Call('V8_context_get_mem', PACKAGE = 'V8', ctx)
+}
+

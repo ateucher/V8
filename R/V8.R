@@ -113,6 +113,9 @@ v8 <- function(global = "global", console = TRUE, typed_arrays = TRUE) {
 
   # Public methods
   this <- local({
+    get_mem <- function(){
+      context_get_mem(private$context);
+    }
     eval <- function(src){
       get_str_output(context_eval(join(src), private$context));
     }

@@ -98,3 +98,14 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// context_get_mem
+int context_get_mem(Rcpp::XPtr< v8::Persistent<v8::Context> > ctx);
+RcppExport SEXP V8_context_get_mem(SEXP ctxSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< Rcpp::XPtr< v8::Persistent<v8::Context> > >::type ctx(ctxSEXP);
+    __result = Rcpp::wrap(context_get_mem(ctx));
+    return __result;
+END_RCPP
+}
