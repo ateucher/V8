@@ -171,6 +171,7 @@ v8 <- function(global = "global", console = TRUE, typed_arrays = TRUE) {
       if(isTRUE(typed_arrays)){
         context_enable_typed_arrays(private$context)
       }
+      # set max_old_mem_size here
       invisible()
     }
     console <- function(){

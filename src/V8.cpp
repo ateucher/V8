@@ -275,7 +275,9 @@ int context_get_mem(Rcpp::XPtr< v8::Persistent<v8::Context> > ctx) {
   HandleScope handle_scope;
   Context::Scope context_scope(*ctx);
 
-  v8::ResourceConstraints constraints;
+  const v8::ResourceConstraints constraints;
 
-  return constraints.max_old_space_size();
+  int max_old_space = constraints.max_old_space_size();
+
+  return max_old_space;
 }
